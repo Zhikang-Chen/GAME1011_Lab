@@ -9,7 +9,7 @@ class Game
 {
 private:
 	std::string m_name, m_publisher, m_dev;
-	Achievement* m_achievement = nullptr;
+	Achievement* m_pachievement = nullptr;
 	int m_numberOfAchieve;
 
 public:

@@ -8,18 +8,18 @@
 		m_name = n;
 		m_publisher = p;
 		m_dev = d;
-		m_achievement = new Achievement[numberOfAchievements];
+		m_pachievement = new Achievement[numberOfAchievements];
 		m_numberOfAchieve = numberOfAchievements;
 	}
 
-	// Add achievement to m_achievement
+	// Add achievement to m_pachievement
 	int Game::addGameAchieve(const std::string t, const std::string d, const int s)
 	{
 		for (auto i = 0; i < m_numberOfAchieve; i++)
 		{
-			if (m_achievement[i].getAchievement().empty())
+			if (m_pachievement[i].getAchievement().empty())
 			{
-				m_achievement[i].setAchievement(t, d, s);
+				m_pachievement[i].setAchievement(t, d, s);
 				return 0;
 			}
 		}
@@ -37,11 +37,11 @@
 			"\nAchievements: ";
 		for (auto i = 0; i < m_numberOfAchieve; i++)
 		{
-			if (m_achievement[i].getAchievement().empty())
+			if (m_pachievement[i].getAchievement().empty())
 			{
 				return info;
 			}
-			info += "\n\n" + m_achievement[i].getAchievement();
+			info += "\n\n" + m_pachievement[i].getAchievement();
 		}
 		return info;
 	}
