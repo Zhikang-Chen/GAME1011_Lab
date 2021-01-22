@@ -10,7 +10,7 @@ class Platform
 {
 private:
 	std::string m_name, m_manufacturer;
-	Game* m_games;
+	Game* m_pgames;
 	int m_numberOfGames;
 
 private:
