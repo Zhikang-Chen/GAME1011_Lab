@@ -10,8 +10,8 @@ Achievement::Achievement()
 // Set Achievement
 void Achievement::setAchievement(std::string t, std::string d, int s)
 {
-	m_title = std::move(t);
-	m_description = std::move(d);
+	m_title = t;
+	m_description = d;
 	m_scoreValue = s;
 }
 

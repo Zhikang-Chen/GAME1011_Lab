@@ -34,7 +34,7 @@
 		auto info = "Name: " + m_name +
 			"\nPublisher: " + m_publisher +
 			"\nDeveloper: " + m_dev +
-			"\n Achievements: ";
+			"\nAchievements: ";
 		for (auto i = 0; i < m_numberOfAchieve; i++)
 		{
 			if (m_achievement[i].getAchievement().empty())

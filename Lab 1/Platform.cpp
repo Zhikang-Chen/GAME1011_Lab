@@ -44,7 +44,7 @@ int Platform::addGame(const std::string n, const std::string p, const std::strin
 	return 1;
 }
 
-// Get all game information
+// Get info of every game in m_games
 std::string Platform::getGameInfo()
 {
 	std::string s;

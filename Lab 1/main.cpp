@@ -41,7 +41,7 @@ int main()
 	consoles = new Platform[platform];
 
 	//Main menu
-	Mainmenu:
+	MAINMENU:
 	cout << "------------------------------------" << endl;
 	cout << "1. Add new platform \n2. View existing platform \n3. Add item to platform \n4. Exit" << endl;
 	cin >> userInput;
@@ -50,7 +50,7 @@ int main()
 	{
 		// Add platform to consoles
 		string name, manufacturer;
-		int numberOfGame, index = 0;
+		int game, index = 0;
 		for (auto i = 0; i < platform; ++i)
 		{
 			if (consoles[i].getPlatformInfo().empty())
@@ -63,7 +63,7 @@ int main()
 		if (index == platform)
 		{
 			cout << "You can't add anymore platform" << endl;
-			goto Mainmenu;
+			goto MAINMENU;
 		}
 
 		cout << "Please enter the name of the platform" << endl;
@@ -72,17 +72,17 @@ int main()
 		cout << "Please enter the manufacturer of the platform" << endl;
 		cin >> manufacturer;
 		
-		INPUTGAME:
+		GAME:
 		cout << "Please enter the amount of games will be in the platform" << endl;
 		cin >> userInput;
-		numberOfGame = inputPrecess(userInput);
-		if (numberOfGame < 0)
+		game = inputPrecess(userInput);
+		if (game < 0)
 		{
 			cout << "Invalid input" << endl;
-			goto INPUTGAME;
+			goto GAME;
 		}
-		consoles[index].setPlatform(name, manufacturer, numberOfGame);
-		goto Mainmenu;
+		consoles[index].setPlatform(name, manufacturer, game);
+		goto MAINMENU;
 	}
 	else if (processedInput == 2)
 	{
@@ -95,16 +95,17 @@ int main()
 					break;
 				cout << consoles[i].getPlatformInfo() << endl;
 			}
-			goto Mainmenu;
+			goto MAINMENU;
 		}
 		else
 			cout << "You have no platform" << endl;
 	}
 	else if (processedInput == 3)
 	{
-		//Display all the existing platform
+		// Display all the existing platform
 		if (!consoles[0].getPlatformInfo().empty())
 		{
+			// Display all the console name
 			for (auto i = 0; i < platform; i++)
 			{
 				if (consoles[i].getPlatformInfo().empty())
@@ -112,11 +113,12 @@ int main()
 				cout << i + 1 << ". " << consoles[i].getPlatformName() << endl;
 			}
 
+			// Ask user to select a console
 			CONSOLE:
 			cout << "Please select a platform (enter 'back' to get back)" << endl;
 			cin >> userInput;
 			if (userInput == "back")
-				goto Mainmenu;
+				goto MAINMENU;
 			int consoleIndex = inputPrecess(userInput)-1;
 			cout << consoleIndex;
 			if(consoleIndex == -1 | consoleIndex >= platform | consoles[consoleIndex].getPlatformInfo().empty())
@@ -125,19 +127,20 @@ int main()
 				goto CONSOLE;
 			}
 			
-			//Second menu
-			GAMECHECK:
+			// Second menu
+			SECONDMENU:
 			cout << consoles[consoleIndex].getPlatformName() << endl;
 			cout << "1. Add game \n2. View existing game \n3. Add achievement to game \n4. Back" << endl;
 			cin >> userInput;
-			int processedInput = inputPrecess(userInput);
+			processedInput = inputPrecess(userInput);
 			if(processedInput < 0 || processedInput > 4)
 			{
 				cout << "Invalid input" << endl;
-				goto GAMECHECK;
+				goto SECONDMENU;
 			}
 			else if(processedInput == 1)
 			{
+				// Add game
 				string name, publisher, dev;
 				int achieve;
 
@@ -159,15 +162,18 @@ int main()
 				
 				if (!consoles[consoleIndex].addGame(name, publisher, dev, achieve))
 					cout << "Unable to add game";
-				goto GAMECHECK;
+				goto SECONDMENU;
 			}
 			else if(processedInput == 2)
 			{
+				// Display all the existing game within select console
 				cout << consoles[consoleIndex].getGameInfo() << endl;
-				goto GAMECHECK;
+				goto SECONDMENU;
 			}
 			else if(processedInput == 3)
 			{
+
+				// Add new achievement to the game
 				string name, title, description;
 				int scoreValue;
 				cout << "Please enter the name of the game" << endl;
@@ -183,24 +189,25 @@ int main()
 				if(scoreValue <= -1)
 				{
 					cout << "Invalid value" << endl;
+					goto SCOREVALUE;
 				}
 				if(!consoles[consoleIndex].addGameAchievement(name, title, description, scoreValue));
 				{
 					cout << "Unable to add achievement";
 				}
-				goto GAMECHECK;
+				goto SECONDMENU;
 			}
 		}
 		else
 		{
 			cout << "You have no platform" << endl;
 		}
-		goto Mainmenu;
+		goto MAINMENU;
 	}
 	else if(processedInput < 0 || processedInput > 4)
 	{
 		cout << "Invalid Input" << endl;
-		goto Mainmenu;
+		goto MAINMENU;
 	}
 	return 0;
 }
