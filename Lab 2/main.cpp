@@ -79,7 +79,7 @@ int main()
 			else if (stoi(manu) == 3)
 			{
 				string name;
-				int something = -1;
+				int DeleteIndex = -1;
 				cout << "\nPlease enter the name of the character you want to delete" << endl;
 				cin.ignore();
 				getline(cin, name);
@@ -87,14 +87,14 @@ int main()
 				{
 					if(c[i]->GetName() == name)
 					{
-						something = i;
+						DeleteIndex = i;
 					}
 				}
 
-				if (something != -1)
+				if (DeleteIndex != -1)
 				{
-					delete c[something];
-					c[something] = nullptr;
+					delete c[DeleteIndex];
+					c[DeleteIndex] = nullptr;
 				}
 				else
 					cout << "\tUnable to delete character" << endl;
