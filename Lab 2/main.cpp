@@ -45,7 +45,7 @@ int main()
 						goto RACE;
 					}
 					
-					cout << "\tPlease enter the name of your character" << endl << "\t";
+					cout << "\tPlease enter the m_name of your character" << endl << "\t";
 					cin.ignore();
 					getline(cin, name);
 					
@@ -80,7 +80,7 @@ int main()
 			{
 				string name;
 				int DeleteIndex = -1;
-				cout << "\nPlease enter the name of the character you want to delete" << endl;
+				cout << "\nPlease enter the m_name of the character you want to delete" << endl;
 				cin.ignore();
 				getline(cin, name);
 				for (int i = 0; i < index; ++i)

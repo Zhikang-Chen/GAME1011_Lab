@@ -58,7 +58,7 @@ std::string Platform::getGameInfo()
 }
 
 // Overload for getGameInfo
-// Get info of game from name
+// Get info of game from m_name
 // Why would I have this? No ideas
 std::string Platform::getGameInfo(std::string gameName)
 {
@@ -88,7 +88,7 @@ std::string Platform::getPlatformInfo()
 	return (info);
 }
 
-// Return name of the platform
+// Return m_name of the platform
 std::string Platform::getPlatformName()
 {
 	return m_name;

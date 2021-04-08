@@ -66,7 +66,7 @@ int main()
 			goto MAINMENU;
 		}
 
-		cout << "Please enter the name of the platform" << endl;
+		cout << "Please enter the m_name of the platform" << endl;
 		cin >> name;
 		
 		cout << "Please enter the manufacturer of the platform" << endl;
@@ -105,7 +105,7 @@ int main()
 		// Display all the existing platform
 		if (!consoles[0].getPlatformInfo().empty())
 		{
-			// Display all the console name
+			// Display all the console m_name
 			for (auto i = 0; i < platform; i++)
 			{
 				if (consoles[i].getPlatformInfo().empty())
@@ -144,7 +144,7 @@ int main()
 				string name, publisher, dev;
 				int achieve;
 
-				cout << "Please enter the name of the game" << endl;
+				cout << "Please enter the m_name of the game" << endl;
 				cin >> name;
 				cout << "Please enter the publisher of the game" << endl;
 				cin >> publisher;
@@ -176,7 +176,7 @@ int main()
 				// Add new achievement to the game
 				string name, title, description;
 				int scoreValue;
-				cout << "Please enter the name of the game" << endl;
+				cout << "Please enter the m_name of the game" << endl;
 				cin >> name;
 				cout << "Please enter the title of the achievement" << endl;
 				cin >> title;
